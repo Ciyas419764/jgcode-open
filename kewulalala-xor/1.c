@@ -39,12 +39,12 @@ int main() {
     }
 
     if (N % 2 != 0) {
-        int sum = 0;
+        long long sum = 0;
         int t1 = 0;
         int count = 0;
         calculate_xor_odd(N, abstract_xor);
 
-        for (int i = 0; i < 16; i++) {
+        for (int i = 0; i < 32; i++) {
             count = 0;
             for (int j = 0; j < N; j++) {
                 count += (nums_xor_odd[j] & (1 << i)) >> i;
@@ -56,15 +56,15 @@ int main() {
             sum += nums_xor_odd[i] ^ t1;
         }
 
-        printf("%d\n", sum);
+        printf("%lld\n", sum);
     } else {
-        int sum = 0;
+        long long sum = 0;
         int t1 = 0, et = 0;
         int count = 0;
         calculate_xor_even(N);
 
         // search (2n-1)
-        for (int i = 0; i < 16; i++) {
+        for (int i = 0; i < 32; i++) {
             count = 0;
             for (int j = 0; j < N; j += 2) {
                 count += (nums_xor_even[j] & (1 << i)) >> i;
@@ -73,7 +73,7 @@ int main() {
         }
 
         // search (2n)
-        for (int i = 0; i < 16; i++) {
+        for (int i = 0; i < 32; i++) {
             count = 0;
             for (int j = 1; j < N; j += 2) {
                 count += (nums_xor_even[j] & (1 << i)) >> i;
@@ -85,7 +85,7 @@ int main() {
             sum += (i % 2 == 0) ? nums_xor_even[i] ^ t1 : nums_xor_even[i] ^ et;
         }
 
-        printf("%d\n", sum);
+        printf("%lld\n", sum);
     }
 
     return 0;

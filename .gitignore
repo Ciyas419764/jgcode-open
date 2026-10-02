@@ -1,3 +1,10 @@
-kewulalala-xor/*.out
+*
 
-.vscode/*
+!*/
+
+
+!*.c
+!*.cpp
+!*.py
+!*.md
+!.gitignore
